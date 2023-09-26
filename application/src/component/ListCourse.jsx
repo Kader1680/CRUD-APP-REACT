@@ -1,23 +1,19 @@
 import { height } from '@mui/system'
 import React, { Fragment } from 'react'
 
+// import Button  from '@material-ui/core/Button'
+import { red } from '@mui/material/colors';
+import {Button}  from '@mui/material'
+import { Container } from '@material-ui/core';
+
+const color = red[500];
+
 
 class ListCourse extends React.Component {
   
   state = {
         isEdit:false
   }
-  // function that return form
-  // renderUpdateForm = () =>{
-  //   return(
-  //     <form>
-  //       <input type='text' />
-  //       <button>Update</button>
-  //     </form>
-  //   )
-  // }
-
-
 
   // function that control
   toggleForm = () =>{
@@ -27,17 +23,6 @@ class ListCourse extends React.Component {
         {isEdit: !isEdit }
       )
   }
-
-
-
-
-
-  // add new task
-  // newTask = (e) =>{
-  //   // console.log(this.props.details.nameCourse)
-  //   e.preventDefault()
-  //   // this.props.editCoursed()
-  // }
 
   // updadeItem
   updadeItem = (e) =>{
@@ -52,9 +37,13 @@ class ListCourse extends React.Component {
   // renderUpdate List
   renderUpdateForm = () =>{
     return(
-      <form onSubmit={this.updadeItem}>
-        <input ref={(value)=>{this.input = value}} defaultValue={this.props.details.nameCourse} type='text' />
-        <button>Add New Task</button>
+      <form style={{ display: "flex", alignItems: "center", "justifyContent": "center", margin: "15px 0" }} onSubmit={this.updadeItem}>
+        {/* <input value={props.current} onChange={props.updateCourse}   variant="outlined" /> */}
+
+        <input style={{ backgroundColor: "white", padding: "9px", border: "0", outline: "none"}}   ref={(value)=>{this.input = value}} defaultValue={this.props.details.nameCourse} type='text' />
+        {/* <button>Update</button> */}
+        <Button type="submit"  sx={{ backgroundColor :" #31a958", border: "0", color: "white",  marginLeft :"1rem"}} variant="outlined">Update</Button>
+
       </form>
     )
   }
@@ -76,20 +65,35 @@ class ListCourse extends React.Component {
     
     renderList = () =>{
       return(
-        <div>
-              <ul>
-                  <li style={{ display:'flex' }}>
-                      <div style={{ width:"50%" }}>
+    // <Container>
+          <div class="tasks">
+                      <div>
                           <div  style={{ height:"auto" }}>{this.props.details.nameCourse}</div>
                       </div>
-                      <div style={{ width:"50%" }}>
-                        <button onClick={() =>{this.toggleForm () }} >Update</button>
-                        <button onClick={()=>{this.props.deleteCourse(this.props.index)}}>Delete</button>
+                      <div>
+                        <Button onClick={() =>{this.toggleForm () }}  sx={{
+                                                  backgroundColor: "white",
+                                                  color: "#31a958",       
+                                                  margin: "0px 10px", 
+                                                  border: "2px solid #31a958 ",      
+    
+                                }}>Update</Button>
+                        <Button onClick={()=>{this.props.deleteCourse(this.props.index)}}
+                        
+                                                                        sx={{
+                                                    backgroundColor: "#31a958",
+                                                    color: "#fff",       
+                                                    border : "2px solid #31a958"
+                                                    
+                                                }}
+                        
+                         variant="outlined">Delete</Button>
+
+                       
                       </div>
-                  </li>
-                  
-              </ul>
           </div>
+    // </Container>
+        
       )
     }
 

@@ -90,21 +90,17 @@ class App extends React.Component{
 
   render(){
     const {courses} = this.state
-    const CourseFetsh = courses.map((cours, index) => {
-          
+    const CourseFetsh = courses.map((cours, index) => {    
           return <ListCourse editCourse = {this.editCourse} key={index} index={index}  deleteCourse={this.deleteCourse}  details={cours} />
     })
     return (
-      <BrowserRouter>
-        <div className="App">
-          
-          <button onClick={this.printArray} >alll courses</button>
-          <p> {this.state.nasss} </p>
-          <p> {this.state.op} </p>
-          <FormCourse  reloveAll={this.reloveAll} current={this.state.current} addCourse={this.addCourse}  updateCourse = {this.updateCourse} />
-          {CourseFetsh}
-      </div>
-      </BrowserRouter>
+          <div className="App">
+              <h2 style={{ textAlign:"center", marginBottom: "1rem" }}>My Todos</h2>
+              <FormCourse  reloveAll={this.reloveAll} current={this.state.current} addCourse={this.addCourse}  updateCourse = {this.updateCourse} />
+              <div>
+                  {CourseFetsh}
+              </div>
+          </div>
     );
   }
 }
