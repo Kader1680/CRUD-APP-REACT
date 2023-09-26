@@ -72,9 +72,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 <h2>Screenshot about Project todolist React JS </h2>
 
-<img src = "./src/screenshot/f.png" /><br></br>
+<img src = "f.png" /><br></br>
 
-<img src = "./src/screenshot/f2.png" /><br></br>
+<img src = "f2.png" /><br></br>
 
 
 
